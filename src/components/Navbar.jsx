@@ -1,54 +1,69 @@
-import React, {useState} from 'react';
-import { Link, animateScroll as scroll, } from 'react-scroll'
+import React, { useState } from "react";
+import { Link } from "react-scroll";
 
-
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
-
-const Navbar = () => {
-    const [nav, setNav] = useState(false)
-    const handleClick = () => setNav(!nav)
-
-    const handleClose =()=> setNav(!nav)
-
+const Nav = () => {
+  let Links = [
+    { name: "HOME", link: "home" },
+    { name: "ABOUT", link: "about" },
+    { name: "SUPPORT", link: "support" },
+    { name: "PLATFORMS", link: "platforms" },
+    { name: "PRICING", link: "pricing" },
+  ];
+  let [open, setOpen] = useState(false);
   return (
-    <div className='w-screen h-[80px] z-10 bg-zinc-200 fixed drop-shadow-lg'>
-      <div className='px-2 flex justify-between items-center w-full h-full'>
-        <div className='flex items-center'>
-          <h1 className='text-3xl font-bold mr-4 sm:text-4xl'>ISAAC.</h1>
-          <ul className='hidden md:flex'>
-          <li className='cursor-pointer'><Link to="home" smooth={true} duration={500}>Home</Link></li>
-          <li className='cursor-pointer'><Link to="about" smooth={true} offset={-200} duration={500}>About</Link></li>
-          <li className='cursor-pointer'><Link to="support" smooth={true} offset={-50} duration={500}>Support</Link></li>
-          <li className='cursor-pointer'><Link to="platforms" smooth={true} offset={-100} duration={500}>Platforms</Link></li>
-          <li className='cursor-pointer'><Link to="pricing" smooth={true} offset={-50} duration={500}>Pricing</Link></li>
-          </ul>
+    <div className="shadow-md w-full fixed top-0 left-0 z-10">
+      <div className="md:flex items-center justify-between bg-white py-2 md:px-7 px-3">
+        <div
+          className="font-bold text-2xl cursor-pointer flex items-center
+      text-gray-800"
+        >
+          <span className="text-3xl text-indigo-600 mr-1 pt-2">
+            <ion-icon name="logo-ionic"></ion-icon>
+          </span>
+          <Link className="pt-2" to="home" smooth={true} duration={500}>
+            ISAAC.
+          </Link>
         </div>
-        <div className='hidden md:flex pr-4'>
-          <button className='border-none bg-transparent text-black mr-4'>
-            Sign In
-          </button>
-          <button className='px-8 py-3'>Sign Up</button>
+
+        <div
+          onClick={() => setOpen(!open)}
+          className="text-2xl absolute right-8 top-6 cursor-pointer md:hidden"
+        >
+          <ion-icon name={open ? "close" : "menu"}></ion-icon>
         </div>
-        <div className='md:hidden mr-4' onClick={handleClick}>
-            {!nav ? <MenuIcon className='w-5' /> : <XIcon className='w-5' />}
-          
-        </div>
+
+        <ul
+          className={`md:flex md:items-center md:pb-0 pb-5 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-4 transition-all duration-500 ease-in ${
+            open ? "top-10 " : "top-[-490px]"
+          }`}
+        >
+          {Links.map((link) => (
+            <li key={link.name} className="md:ml-8 text-base md:my-0 my-5">
+              {/* <a
+                href={link.link}
+                className="text-gray-800 hover:text-gray-400 duration-500"
+              >
+                {link.name}
+              </a> */}
+              <Link
+                to={link.link}
+                smooth={true}
+                className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
+          <div className="md:flex pr-4 md:ml-8 ml-4">
+            <button className="border-none bg-transparent text-black mr-4">
+              Sign In
+            </button>
+            <button className="px-8 py-3">Sign Up</button>
+          </div>
+        </ul>
       </div>
-
-      <ul className={!nav ? 'hidden' : 'absolute bg-zinc-200 w-full px-8'}>
-          <li className='border-b-2 border-zinc-300 w-full cursor-pointer'><Link onClick={handleClose} to="home" smooth={true} duration={500}>Home</Link></li>
-          <li className='border-b-2 border-zinc-300 w-full cursor-pointer'><Link onClick={handleClose} to="about" smooth={true} offset={-200} duration={500}>About</Link></li>
-          <li className='border-b-2 border-zinc-300 w-full cursor-pointer'><Link onClick={handleClose} to="support" smooth={true} offset={-50} duration={500}>Support</Link></li>
-          <li className='border-b-2 border-zinc-300 w-full cursor-pointer'><Link onClick={handleClose} to="platforms" smooth={true} offset={-100} duration={500}>Platforms</Link></li>
-          <li className='border-b-2 border-zinc-300 w-full cursor-pointer'><Link onClick={handleClose} to="pricing" smooth={true} offset={-50} duration={500}>Pricing</Link></li>
-
-        <div className='flex flex-col my-4'>
-            <button className='bg-transparent text-indigo-600 px-8 py-3 mb-4'>Sign In</button>
-            <button className='px-8 py-3'>Sign Up</button>
-        </div>
-      </ul>
     </div>
   );
 };
 
-export default Navbar;
+export default Nav;

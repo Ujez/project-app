@@ -27,7 +27,7 @@ const Pricing = () => {
               <p className='text-6xl font-bold py-4 flex'>$49<span className='text-xl text-slate-500 flex flex-col justify-end'>/mo</span></p>
             </div>
             <p className='text-xl py-8 text-slate-500'>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-            <div className='text-xl'>
+            <div className='lg:text-xl md:text-2xl sm:text-x'>
                 <p className='flex py-4'><CheckIcon className='w-8 mr-5 text-green-600'  />Lorem, ipsum dolor.</p>
                 <p className='flex py-4'><CheckIcon className='w-8 mr-5 text-green-600'  />Lorem, ipsum dolor.</p>
                 <p className='flex py-4'><MinusIcon className='w-8 mr-5 text-red-600'  />Lorem, ipsum dolor.</p>
@@ -42,7 +42,7 @@ const Pricing = () => {
               <p className='text-6xl font-bold py-4 flex'>$99<span className='text-xl text-slate-500 flex flex-col justify-end'>/mo</span></p>
             </div>
             <p className='text-xl py-8 text-slate-500'>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-            <div className='text-xl'>
+            <div className='lg:text-xl md:text-2xl sm:text-x'>
                 <p className='flex py-4'><CheckIcon className='w-8 mr-5 text-green-600'  />Lorem, ipsum dolor.</p>
                 <p className='flex py-4'><CheckIcon className='w-8 mr-5 text-green-600'  />Lorem, ipsum dolor.</p>
                 <p className='flex py-4'><CheckIcon className='w-8 mr-5 text-green-600'  />Lorem, ipsum dolor.</p>
@@ -57,7 +57,7 @@ const Pricing = () => {
               <p className='text-6xl font-bold py-4 flex'>$200<span className='text-xl text-slate-500 flex flex-col justify-end'>/mo</span></p>
             </div>
             <p className='text-xl py-8 text-slate-500'>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-            <div className='text-xl'>
+            <div className='lg:text-xl md:text-2xl sm:text-x'>
                 <p className='flex py-4'><CheckIcon className='w-8 mr-5 text-green-600'  />Lorem, ipsum dolor.</p>
                 <p className='flex py-4'><CheckIcon className='w-8 mr-5 text-green-600'  />Lorem, ipsum dolor.</p>
                 <p className='flex py-4'><CheckIcon className='w-8 mr-5 text-green-600'  />Lorem, ipsum dolor.</p>
